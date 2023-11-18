@@ -1,0 +1,42 @@
+package JDBCTest;
+
+import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.Statement;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+public class TableTest2 {
+	JButton show;
+	JTable tb;
+	ConnectDatabase db=new ConnectDatabase();
+	Connection con;
+	Statement st;
+	
+public TableTest2() {
+	JFrame f=new JFrame("Table Test");
+	f.setSize(400,400);
+	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	show = new JButton("Show");
+	JPanel p = new JPanel();
+	p.add(show);
+	f.add(p,BorderLayout.NORTH);
+	tb=new JTable();
+	JScrollPane jsp=new JScrollPane(tb);
+	f.add(jsp,BorderLayout.CENTER);
+	tb.setModel(new DefaultTableModel(
+			new Object[][] {},
+			new String[] {"ID","Name","Age"}
+			));
+	
+	f.setVisible(true);
+}
+public static void main(String[] args) {
+	new TableTest2();
+}
+}

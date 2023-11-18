@@ -1,0 +1,55 @@
+package Exercises;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
+public class Ex2 {
+    JMenuBar mb;
+    JMenu file, importfile;
+    JMenuItem news, open, save, exit;
+    JMenuItem ip1, ip2, ip3;
+
+    public Ex2() {
+        JFrame f = new JFrame("Sub Menu");
+        f.setSize(400, 400);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mb = new JMenuBar();
+        file = new JMenu("File");
+        importfile = new JMenu("Import File");
+        news = new JMenuItem("New");
+        open = new JMenuItem("Open");
+        save = new JMenuItem("Save");
+        exit = new JMenuItem("Exit");
+        news.setIcon(new ImageIcon(ClassLoader.getSystemResource("new.png")));
+        open.setIcon(new ImageIcon(ClassLoader.getSystemResource("open.png")));
+        save.setIcon(new ImageIcon(ClassLoader.getSystemResource("save.png")));
+        exit.setIcon(new ImageIcon(ClassLoader.getSystemResource("close.png")));
+
+
+        ip1 = new JMenuItem("Import New Feed List....");
+        ip2 = new JMenuItem("Import BookMark...");
+        ip3 = new JMenuItem("Import Mail...");
+
+        importfile.add(ip1);
+        importfile.add(ip2);
+        importfile.add(ip3);
+
+        file.add(news);
+        file.add(open);
+        file.add(save);
+        file.addSeparator();
+        file.add(importfile);
+        file.addSeparator();
+        file.add(exit);
+        mb.add(file);
+        f.setJMenuBar(mb);
+        f.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new Ex2();
+    }
+}
